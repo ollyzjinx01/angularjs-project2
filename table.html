@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TableApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="angular-1.8.2/angular.min.js"></script>
+    <title>angualr class3</title>
+  </head>
+  <body ng-controller="proController">
+    <div>
+      <input type="text" placeholder="search" ng-model="searchPro" />
+      <table>
+        <tr>
+          <th>PRODUCT</th>
+          <th>PRICE</th>
+          <th>SPECIFICATION</th>
+          <th>INFO...</th>
+        </tr>
+        <tr ng-repeat="product in products|filter:searchPro">
+          <td>{{product.product}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.specification}}</td>
+          <td><button>INFO</button></td>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+      var app = angular.module("TableApp", []);
+      app.controller("proController", function ($scope) {
+        $scope.products = [
+          { product: "t-shirt", price: "40000", specification: "XL,L,S" },
+          { product: "shirt", price: "65000", specification: "XL,L,S" },
+          { product: "polo", price: "60000", specification: "XL,L,M" },
+          {
+            product: "novelty-polo",
+            price: "150000",
+            specification: "M,L,XL,XXL",
+          },
+          { product: "sneakers", price: "120000", specification: "9,10,11" },
+          {
+            product: "female-slippers",
+            price: "65000",
+            specification: "7,8,9",
+          },
+          { product: "cologne", price: "10000", specification: "150ml" },
+        ];
+      });
+    </script>
+  </body>
+</html>
